@@ -1,0 +1,37 @@
+
+
+form {
+    font-family: 'Nunito', sans-serif;
+   border: 10px pink solid;
+   padding: 5%;
+    background-color: rgb(226, 214, 214);
+  
+}
+
+.imagen_media {
+    height: 200px;
+    align-items: center;
+    margin-right: 10px;
+   
+
+}
+
+img {
+    border: none;
+    width:13%;
+}
+.dado{
+    width: 50%;
+}
+.content-main{
+    padding-top: 20px;
+    padding-bottom: 40px;
+    text-align: justify;
+    min-height: 90vh;
+}
+table{
+    background-color: rebeccapurple;
+}
+
+
+

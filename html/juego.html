@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+        <meta content="Mi evidencia html" name="description" />
+        <meta content="Luisa Riascos" name="author" />
+        <title>Inicio</title>
+       <!-- ================== ESTILOS CSS ================== -->
+        <link href ="../css/miestilo.css" rel="stylesheet"/>
+      
+        <link href="../css/bootstrap.min.css" rel="stylesheet"/>
+       
+       <!-- ================== SCRIPTS JS ================== -->
+
+        
+        <script src="../plugins/bootstrap.bundle.min.js"></script>
+ 
+       
+
+    </head>
+
+    <body>
+      
+        <nav class= "navbar navbar-dark bg-dark navbar-expand">
+            <div class="navbar-header">
+            <ul class="nav navbar-nav">
+                
+                <li><a class="nav-link" href="index.html">Bienvenidad</a></li>
+                <li><a class="nav-link" href="juego.html">Juego</a></li>
+            
+              </ul>
+            </div>
+        
+        </nav>
+  <br>
+ <div class="container content-main">
+            <div class="row justify-content-center text-center">
+                <div class="col-12 ">
+                    <h3>LANZAMIENTO DE DADOS</h3>                
+                </div>
+                <div class="col-12">
+                    <p>lanzar los dados, el ganador será quien saque la suma que iguale numero adivinado</p>
+                </div>
+            </div>
+            <div class="row justify-content-center text-center my-4">
+                 
+            <div class="row">
+                <div class="col-12 text-center">
+                            <div class="card style= width: 18rem;">
+                                <h2 id="PuntajeDeseado">0</h2>
+                                <h5></h5>
+                            </div>
+                </div>
+               
+            </div>
+     
+            </div> 
+                        
+            <div class="row">
+                <div class="col-12 text-center">
+                            <div class="card style= width: 18rem;">
+                                <h2 id="estado">tira el dado</h2>
+                                
+                            </div>
+            
+            <div class="row justify-content-center text-center my-4">
+                <button class="btn btn-success" id="boton" onclick="lanzardados()">
+                    LANZAR DADOS
+                </button>
+            </div>
+            <div class="row justify-content-center text-center my-4">
+                <div class="col-5 text-center">
+                    <img src="../images/rand.svg" class="dado" id="ImgDado1">
+                </div>
+               
+                <div class="col-2 text-center">
+                    <div class="card-header my-5">
+                        <h5><b>SUMA DE LOS DADOS</b></h5>
+                        <button class="btn btn-dark white-text">
+                            <h2 id="SumaDados">0</h2>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="col-5 text-center">
+                    <img src="../images/rand.svg" class="dado" id="ImgDado2">
+                </div>
+            </div>
+            
+               
+
+
+            
+           
+
+        </div>
+
+          
+        <script src="../js/dados.js"></script>
+
+    </body>
+
+</html>

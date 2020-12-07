@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+        <meta content="Mi evidencia html" name="description" />
+        <meta content="Luisa Riascos" name="author" />
+        <title>Inicio</title>
+       <!-- ================== ESTILOS CSS ================== -->
+       <link href="../css/bootstrap.min.css" rel="stylesheet"/>
+       <link href="../css/jquery.dataTables.min.css" rel="stylesheet"  />
+        <link href ="../css/miestilo.css" rel="stylesheet"/>
+        
+       
+       
+       <!-- ================== SCRIPTS JS ================== -->
+       <script src="../plugins/jquery-3.4.1.min.js"></script>
+        <script src="../plugins/bootstrap.bundle.min.js"></script>
+        <script src="../plugins/jquery.dataTables.min.js"></script>
+        
+
+    </head>
+
+    <body>
+      
+        <nav class= "navbar navbar-dark bg-dark navbar-expand-xl ">
+            <div class="navbar-header">
+            <ul class="nav navbar-nav">
+                
+                <li><a class="nav-link" href="index.html">Bienvenidad</a></li>
+                <li><a class="nav-link" href="juego.html">Juego</a></li>
+                
+              </ul>
+            </div>
+        
+        </nav>
+  <br>
+
+  <div class= "container ">
+        <div class="row ">
+            <div class="col-12  col-xl-7 col-md-6 ">     
+                <div >
+                       
+            <form action= "/" >
+           
+           
+                    <legend>Datos de jugador</legend>
+                    <div class="form-group " >
+                    <label for="nombre"> Nombre:</label>
+                    <input name="nombre" class="form-control " id="nombre" placeholder="escribe tu nombre" type="text" required />
+                    </div>
+                   
+                    <div class="form-group  ">
+                    <label for="apellidos">Apellidos</label>
+                    <input name="apellido"  class="form-control" id="apellido" placeholder="pon tus apellidos" required type="text"/>
+                    <br>
+                    </div>
+
+                   
+                    
+                    <div class="form-group  " >
+                    <label for="ciudad">Ciudad</label>
+                    <select name="ciudad" class="form-control" id="ciudad">
+                        <optgroup label="Colombia">
+                            <option value="0">----</option>
+                            <option value="bog">Bogota</option>
+                            <option value="cli">Cali</option>
+                            <option value="barrq">Barranquilla</option>
+                            <option value="medll">Medellin</option>
+                            <option value="cartg">Cartagena</option>
+                        </optgroup>
+                        
+                        
+                    </select>
+                    </div>
+
+                                                
+
+                    <div class="form-group " >
+                   
+                      <label for="comentarios">Comentarios</label>
+                      <input name="comentarios"  class="form-control" id="comentarios" type="text"/>
+                      
+                      </div> 
+                    <div class="row justify-content-center text-center my-4 ">
+                <button type="button" id="crearFila"class="btn btn-dark"> enviar dato</button>
+             
+                <buton type="button" class="btn btn-secondary">vaciar formulario</button>
+                  
+            </div>
+                </div> 
+        </form>
+         
+        </div>
+
+        <div class="col-12 col-xl-5 col-md-3 padding-10">
+            <div id="adicionando">  </div>
+             <table id="tabla" class="display">
+                 <thead>
+                 <tr>
+                    
+                     <th>Nombre</th>
+                     <th>Apellido</th>
+                     <th>Ciudad</th>
+                     <th>Comentario</th>
+                 </tr>
+                 </thead>
+                 <tbody >
+                     <tr>
+                    <td>luisa</td>
+                    <td>riascos</td>
+                    <td>bog</td>
+                    <td>perdon por la tardanza</td>
+                    <tr>
+                        <td>carlos</td>
+                        <td>diaz</td>
+                        <td>cali</td>
+                        <td>rojo</td>
+                </tr>
+                     
+
+
+
+                 </tbody>
+                
+
+
+               
+                                
+             </table>
+       
+         </div>
+            </div>
+                </div>
+             
+
+                <script>
+                    $(document).ready( function () {
+                        $('#tabla').DataTable({
+                            //para cambiar el lenguaje a español
+                            "language": {
+                                "lengthMenu": "Mostrar _MENU_ registros",
+                                "zeroRecords": "No se encontraron resultados",
+                                "info": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                                "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                                "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+                                "sSearch": "Buscar:",
+                                "oPaginate": {
+                                    "sFirst": "Primero",
+                                    "sLast":"Último",
+                                    "sNext":"Siguiente",
+                                    "sPrevious": "Anterior"
+                                },
+                                "sProcessing":"Procesando...",
+                            }
+                        });
+                    });
+                   
+                    
+                </script>
+                
+              </script>
+        
+             <script >
+             $(document).ready(function() {
+             //obtenemos el valor de los input
+             
+             $('#crearFila').click(function() {
+             var nombre = document.getElementById("nombre").value;
+             var apellido = document.getElementById("apellido").value;
+             var ciudad = document.getElementById("ciudad").value;
+             var comentario = document.getElementById("comentarios").value;
+             //Añado una nueva fila
+             var fila = '<tr ><td>' + nombre + '</td><td>' + apellido + '</td><td>' + ciudad + '</td><td>' + comentario + '</td></tr>'; //esto seria lo que contendria la fila
+             
+             ;
+             
+             $('#tabla tbody>tr:first').after(fila);
+             $("#adicionando").text(""); //esta instruccion limpia el div adicioandos para que no se vayan acumulando
+             var nFilas = $("#tabla tr").length;
+             $("#adicionando").append(nFilas -1 );
+             //le resto 1 para no contar la fila del header
+             document.getElementById("comentarios").value ="";
+             document.getElementById("ciudad").value = "";
+             document.getElementById("apellido").value = "";
+             document.getElementById("nombre").value = "";
+              document.getElementById("nombre").focus();
+             });
+             
+             });
+             </script>
+    </body>
+
+</html>
